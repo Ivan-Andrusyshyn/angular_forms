@@ -1,0 +1,9 @@
+<div>
+  <form class="user-form" [formGroup]="signInForm" (submit)="onSignIn()">
+    <app-input-group
+      [pageIs]="'SignIn'"
+      [formGroup]="signInForm"
+    ></app-input-group>
+    <button class="submit-button" type="submit">Sign In</button>
+  </form>
+</div>

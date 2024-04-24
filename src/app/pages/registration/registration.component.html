@@ -1,0 +1,20 @@
+<div>
+  <h2></h2>
+  <form [formGroup]="signUpForm" (submit)="onSignUp()">
+    <app-input-group
+      [formGroup]="signUpForm.controls.personalInfo"
+    ></app-input-group>
+    <app-your-goal [formGroup]="signUpForm.controls.goalInfo"></app-your-goal>
+    <app-select-gender
+      [formGroup]="signUpForm.controls.genderInfo"
+    ></app-select-gender>
+    <app-body-parameters
+      [formGroup]="signUpForm.controls.parametersInfo"
+    ></app-body-parameters>
+    <app-your-activity
+      [formGroup]="signUpForm.controls.activityInfo"
+    ></app-your-activity>
+    <button type="submit">Next</button>
+    <button type="button">Back</button>
+  </form>
+</div>

@@ -1,0 +1,35 @@
+.goal-section {
+  margin-bottom: 20px;
+}
+
+.goal-header {
+  margin-bottom: 10px;
+}
+
+.goal-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.goal-radio {
+  display: none;
+}
+
+.goal-label {
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.goal-label::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+
+.goal-radio:checked + .goal-label::before {
+  background-color: #007bff;
+}

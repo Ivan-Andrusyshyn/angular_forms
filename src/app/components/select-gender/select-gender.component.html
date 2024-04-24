@@ -1,0 +1,31 @@
+<div [formGroup]="formGroup" class="form-container">
+  <p class="form-label">Gender</p>
+  <div class="gender-inputs">
+    <input
+      type="radio"
+      class="radio-input"
+      id="male"
+      formControlName="gender"
+      value="Male"
+    />
+    <label for="male" class="radio-label">Male</label>
+
+    <input
+      type="radio"
+      class="radio-input"
+      id="female"
+      formControlName="gender"
+      value="Female"
+    />
+    <label for="female" class="radio-label">Female</label>
+  </div>
+
+  <label for="dateOfBirth" class="form-label">Date of Birth</label>
+  <input
+    type="text"
+    class="text-input"
+    id="dateOfBirth"
+    placeholder="Enter your date of birth (dd.mm.yyyy)"
+    formControlName="dateOfBirth"
+  />
+</div>

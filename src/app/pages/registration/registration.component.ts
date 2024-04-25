@@ -1,19 +1,16 @@
 import { Component, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { SignUpService } from '../../services/sign-up.service';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CommonModule, NgIf } from '@angular/common';
+
 import { FormDataService } from '../../services/form-data.service';
-import { NgIf } from '@angular/common';
+import { CurrentStepService } from '../../services/current-step.service';
+
 import { InputGroupComponent } from '../../components/input-group/input-group.component';
 import { YourGoalComponent } from '../../components/your-goal/your-goal.component';
 import { SelectGenderComponent } from '../../components/select-gender/select-gender.component';
 import { YourActivityComponent } from '../../components/your-activity/your-activity.component';
 import { BodyParametersComponent } from '../../components/body-parameters/body-parameters.component';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-registration',
@@ -23,6 +20,7 @@ import { BodyParametersComponent } from '../../components/body-parameters/body-p
     SelectGenderComponent,
     InputGroupComponent,
     YourGoalComponent,
+    CommonModule,
     BodyParametersComponent,
     YourActivityComponent,
     NgIf,
@@ -32,8 +30,18 @@ import { BodyParametersComponent } from '../../components/body-parameters/body-p
 })
 export class RegistrationComponent {
   private fb = inject(FormBuilder);
-  signUpService = inject(SignUpService);
-  formDataService = inject(FormDataService);
+  private authService = inject(AuthService);
+  private formDataService = inject(FormDataService);
+  private currentStepService = inject(CurrentStepService);
+
+  totalSteps: number = 5;
+  currentStep: number = 1;
+
+  constructor() {
+    this.currentStepService.currentStep.subscribe((currentNumber) => {
+      this.currentStep = currentNumber;
+    });
+  }
 
   signUpForm = this.fb.group({
     personalInfo: this.fb.group({
@@ -57,12 +65,18 @@ export class RegistrationComponent {
     }),
   });
 
-  onSignUp() {
-    console.log(this.signUpForm.value);
+  onBack(): void {
+    this.currentStepService.onBack();
+  }
 
-    if (this.signUpForm.valid) {
+  onSignUp() {
+    if (this.currentStep === this.totalSteps) {
       this.formDataService.setFormData(this.signUpForm.value);
-      this.signUpService.goToNextStep();
+      this.authService.onSignUp();
+      this.currentStepService.resetCurrentStep();
+      return;
+    } else {
+      this.currentStepService.onNextStep();
     }
   }
 }

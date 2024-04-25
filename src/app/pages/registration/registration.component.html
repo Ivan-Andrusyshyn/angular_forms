@@ -1,20 +1,32 @@
 <div>
   <h2></h2>
-  <form [formGroup]="signUpForm" (submit)="onSignUp()">
-    <app-input-group
-      [formGroup]="signUpForm.controls.personalInfo"
-    ></app-input-group>
-    <app-your-goal [formGroup]="signUpForm.controls.goalInfo"></app-your-goal>
-    <app-select-gender
-      [formGroup]="signUpForm.controls.genderInfo"
-    ></app-select-gender>
-    <app-body-parameters
-      [formGroup]="signUpForm.controls.parametersInfo"
-    ></app-body-parameters>
-    <app-your-activity
-      [formGroup]="signUpForm.controls.activityInfo"
-    ></app-your-activity>
-    <button type="submit">Next</button>
-    <button type="button">Back</button>
+  <form [formGroup]="signUpForm">
+    <div *ngIf="currentStep === 1" class="slide-in-out">
+      <app-input-group
+        [formGroup]="signUpForm.controls.personalInfo"
+      ></app-input-group>
+    </div>
+    <div *ngIf="currentStep === 2" class="slide-in-out">
+      <app-your-goal [formGroup]="signUpForm.controls.goalInfo"></app-your-goal>
+    </div>
+    <div *ngIf="currentStep === 3" class="slide-in-out">
+      <app-select-gender
+        [formGroup]="signUpForm.controls.genderInfo"
+      ></app-select-gender>
+    </div>
+    <div *ngIf="currentStep === 4" class="slide-in-out">
+      <app-body-parameters
+        [formGroup]="signUpForm.controls.parametersInfo"
+      ></app-body-parameters>
+    </div>
+    <div *ngIf="currentStep === 5" class="slide-in-out">
+      <app-your-activity
+        [formGroup]="signUpForm.controls.activityInfo"
+      ></app-your-activity>
+    </div>
+    <button type="button" (click)="onSignUp()">Next</button>
+    <button type="button" (click)="onBack()" *ngIf="currentStep > 1">
+      Back
+    </button>
   </form>
 </div>

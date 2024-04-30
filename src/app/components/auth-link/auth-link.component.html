@@ -1,0 +1,14 @@
+<div *ngIf="activePage === 'signup'; else signinBlock">
+  <p>
+    Do you already have an account?
+    <a class="auth_form_link" routerLink="/signin">Sign in</a>
+  </p>
+</div>
+<ng-template #signinBlock>
+  <div *ngIf="activePage === 'signin'">
+    <p>
+      If you don't have an account yet
+      <a class="auth_form_link" routerLink="/signup">Sign up</a>
+    </p>
+  </div>
+</ng-template>

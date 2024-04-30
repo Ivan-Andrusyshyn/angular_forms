@@ -1,0 +1,23 @@
+.auth_img {
+  width: 300px;
+  height: 296px;
+  margin-bottom: 14px;
+
+  display: block;
+}
+
+@media screen and (min-width: 834px) {
+  .auth_img {
+    width: 380px;
+    height: 376px;
+    margin-bottom: 60px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .auth_img {
+    margin-bottom: 0px;
+
+    width: 592px;
+    height: 588px;
+  }
+}

@@ -1,21 +1,57 @@
-<div [formGroup]="formGroup" class="form-container">
-  <input
-    class="form-input"
-    type="text"
-    formControlName="name"
-    placeholder="Name"
-    *ngIf="pageIs === 'SignUp'"
-  />
-  <input
-    class="form-input"
-    type="email"
-    formControlName="email"
-    placeholder="E-mail"
-  />
-  <input
-    class="form-input"
-    type="password"
-    formControlName="password"
-    placeholder="Password"
-  />
+<div [formGroup]="formGroup" class="input-container">
+  <div class="form_wrapper_input">
+    <input
+      class="form-input"
+      type="text"
+      title="Example: Ivan"
+      formControlName="name"
+      placeholder="Name"
+      *ngIf="pageIs === 'SignUp'"
+      [ngClass]="{
+        'invalid-input': isInvalid('name'),
+        'valid-input': isValid('name')
+      }"
+    />
+    <span *ngIf="isValid('name')" class="form_icon_wrapper">
+      <app-success-field-icon></app-success-field-icon>
+    </span>
+  </div>
+  <div class="form_wrapper_input">
+    <input
+      class="form-input"
+      type="email"
+      formControlName="email"
+      placeholder="E-mail"
+      title="Example: something@icloud.com"
+      [ngClass]="{
+        'invalid-input': isInvalid('email'),
+        'valid-input': isValid('email')
+      }"
+    />
+    <span *ngIf="isValid('email')" class="form_icon_wrapper">
+      <app-success-field-icon></app-success-field-icon>
+    </span>
+  </div>
+  <div class="form_wrapper_password">
+    <input
+      class="form-input"
+      [type]="getInputType()"
+      formControlName="password"
+      placeholder="Password"
+      title="Example: 123456"
+      [ngClass]="{
+        'invalid-input': isInvalid('password'),
+        'valid-input': isValid('password')
+      }"
+    />
+    <span *ngIf="isValid('password')" class="container_icon-password">
+      <app-success-field-icon></app-success-field-icon>
+    </span>
+    <span class="form_icon_wrapper" *ngIf="!isValid('password')">
+      <app-show-password-btn
+        (onShow)="onPasswordShow()"
+        [isShowPassword]="isShowPassword"
+      ></app-show-password-btn>
+    </span>
+  </div>
 </div>

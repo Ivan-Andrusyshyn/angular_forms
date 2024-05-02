@@ -1,24 +1,29 @@
 <header class="header">
   <h2 class="header_title">HealthyHub</h2>
-  <nav>
-    <ul class="header_navlist">
-      <li class="header_navItem">
-        <a
-          class="header_navLink"
-          routerLinkActive="activeLink"
-          routerLink="/signin"
-          >SignIn</a
-        >
-      </li>
-      <span> / </span>
-      <li class="header_navItem">
-        <a
-          class="header_navLink"
-          routerLinkActive="activeLink"
-          routerLink="/signup"
-          >SignUp</a
-        >
-      </li>
-    </ul>
-  </nav>
+  <div class="header_wrapper_nav">
+    <nav>
+      <ul class="header_navlist">
+        <li class="header_navItem">
+          <a
+            class="header_navLink"
+            routerLinkActive="activeLink"
+            routerLink="/signin"
+            >SignIn</a
+          >
+          <span> / </span>
+        </li>
+        <li class="header_navItem">
+          <a
+            class="header_navLink"
+            routerLinkActive="activeLink"
+            routerLink="/signup"
+            >SignUp</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <svg class="avatar-sign-in">
+      <use href="../../../assets/header-sprite.svg#avatar-sign-in"></use>
+    </svg>
+  </div>
 </header>

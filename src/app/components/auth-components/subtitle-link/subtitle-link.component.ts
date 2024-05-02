@@ -3,12 +3,12 @@ import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-auth-link',
+  selector: 'app-subtitle-link',
   standalone: true,
   imports: [NgIf, RouterModule],
-  templateUrl: './auth-link.component.html',
-  styleUrl: './auth-link.component.css',
+  templateUrl: './subtitle-link.component.html',
+  styleUrl: './subtitle-link.component.css',
 })
-export class AuthLinkComponent {
+export class SubtitleLinkComponent {
   @Input() activePage: string = 'signin';
 }

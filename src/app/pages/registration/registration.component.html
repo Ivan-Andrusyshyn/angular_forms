@@ -1,69 +1,13 @@
 <section class="signUp_container">
   <app-auth-img [currentStep]="currentStep"></app-auth-img>
   <div class="signUp_container_form">
-    <h2 class="signUp_title">Sign up</h2>
+    <app-title [currentStep]="currentStep"></app-title>
+    <app-subtitle [currentStep]="currentStep"></app-subtitle>
 
-    <p class="signUp_subtitle">You need to register to use the service</p>
-    <form [formGroup]="signUpForm" class="signUp_form">
-      <div class="signUp_wrapper_component" *ngIf="currentStep === 1">
-        <app-input-group
-          [formGroup]="signUpForm.controls.personalInfo"
-        ></app-input-group>
-      </div>
-      <div class="signUp_wrapper_component" *ngIf="currentStep === 2">
-        <app-your-goal
-          [formGroup]="signUpForm.controls.goalInfo"
-        ></app-your-goal>
-      </div>
-      <div class="signUp_wrapper_component" *ngIf="currentStep === 3">
-        <app-select-gender
-          [formGroup]="signUpForm.controls.genderInfo"
-        ></app-select-gender>
-      </div>
-      <div class="signUp_wrapper_component" *ngIf="currentStep === 4">
-        <app-body-parameters
-          [formGroup]="signUpForm.controls.parametersInfo"
-        ></app-body-parameters>
-      </div>
-      <div class="signUp_wrapper_component" *ngIf="currentStep === 5">
-        <app-your-activity
-          [formGroup]="signUpForm.controls.activityInfo"
-        ></app-your-activity>
-      </div>
-      <ng-container *ngIf="isInvalid('password') && passwordControl">
-        <app-error-message
-          *ngIf="passwordControl.errors?.['required']"
-          [errorMessage]="'Password is required'"
-        ></app-error-message>
-        <app-error-message
-          *ngIf="passwordControl.errors?.['passwordStrength']"
-          [errorMessage]="
-            'Your password must have lower case, upper case and numeric characters.'
-          "
-        ></app-error-message>
-      </ng-container>
-
-      <div class="form_btns_container">
-        <button
-          [disabled]="!signUpForm.valid"
-          [class.from_btn_error]="!signUpForm.valid"
-          class="signUp_form_btn confirm"
-          type="button"
-          (click)="onSignUp()"
-        >
-          Next
-        </button>
-        <button
-          class="signUp_form_btn back"
-          type="button"
-          (click)="onBack()"
-          *ngIf="currentStep > 1"
-        >
-          Back
-        </button>
-      </div>
-    </form>
-
-    <app-auth-link [activePage]="'signup'"></app-auth-link>
+    <app-form></app-form>
+    <app-subtitle-link
+      *ngIf="currentStep === 1"
+      [activePage]="'signup'"
+    ></app-subtitle-link>
   </div>
 </section>

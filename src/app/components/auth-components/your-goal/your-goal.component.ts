@@ -9,5 +9,5 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './your-goal.component.css',
 })
 export class YourGoalComponent {
-  @Input() formGroup: any;
+  @Input() formGroup!: FormGroup;
 }

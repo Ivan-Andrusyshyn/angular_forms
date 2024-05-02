@@ -34,6 +34,12 @@
 .header_navItem {
 }
 
+.header_wrapper_nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .header_navLink {
   text-decoration: none;
   color: #ffffff;
@@ -44,6 +50,14 @@
 .activeLink {
   color: #e3ffa8;
 }
+.avatar-sign-in {
+  width: 28px;
+  height: 28px;
+  padding-left: 6px;
+
+  fill: var(--color-primary-white);
+}
+
 @media screen and (min-width: 834px) {
 }
 @media screen and (min-width: 1440px) {

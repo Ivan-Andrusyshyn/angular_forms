@@ -10,10 +10,14 @@ input {
 p,
 h1,
 h2,
+ul,
 h3 {
   margin: 0;
 }
-
+ul {
+  list-style: none;
+  padding-left: 0;
+}
 :root {
   --toastify-color-light: #fff;
   --toastify-color-dark: #121212;

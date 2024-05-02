@@ -6,16 +6,16 @@ import {
   Validators,
 } from '@angular/forms';
 
-import { InputGroupComponent } from '../../components/input-group/input-group.component';
-import { AuthImgComponent } from '../../components/auth-img/auth-img.component';
-import { AuthLinkComponent } from '../../components/auth-link/auth-link.component';
+import { InputGroupComponent } from '../../components/auth-components/input-group/input-group.component';
+import { AuthImgComponent } from '../../components/auth-components/auth-img/auth-img.component';
+import { SubtitleLinkComponent } from '../../components/auth-components/subtitle-link/subtitle-link.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
     InputGroupComponent,
-    AuthLinkComponent,
+    SubtitleLinkComponent,
     ReactiveFormsModule,
     AuthImgComponent,
   ],

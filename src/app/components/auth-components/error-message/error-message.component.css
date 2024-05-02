@@ -1,0 +1,8 @@
+.error-message {
+  color: red;
+  font-size: 12px;
+  position: absolute;
+  bottom: 65px;
+  margin-bottom: 1rem;
+  max-width: 370px;
+}

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-select-gender',
@@ -9,5 +9,5 @@ import { ReactiveFormsModule } from '@angular/forms';
   styleUrl: './select-gender.component.css',
 })
 export class SelectGenderComponent {
-  @Input() formGroup: any;
+  @Input() formGroup!: FormGroup;
 }

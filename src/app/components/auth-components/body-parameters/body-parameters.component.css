@@ -1,0 +1,40 @@
+.form-container {
+  gap: 24px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--color-primary-white);
+  line-height: 1.4;
+}
+
+.input-field {
+  width: 300px;
+  padding: 8px 30px 8px 10px;
+  gap: 10px;
+  outline: none;
+  font-weight: 400;
+  line-height: 1.4;
+  border-radius: 12px;
+
+  align-items: flex-start;
+  color: var(--color-primary-grey, #b6b6b6);
+  display: inline-flex;
+  flex-direction: column;
+  border: 1px solid var(--color-primary-green-lite);
+  background: var(--color-primary-black-2);
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #007bff;
+}
+@media screen and (min-width: 834px) {
+  .input-field {
+    width: 380px;
+  }
+}

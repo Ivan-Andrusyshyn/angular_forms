@@ -2,8 +2,8 @@ import { NgClass, NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { SuccessFieldIconComponent } from '../success-field-icon/success-field-icon.component';
-import { ShowPasswordBtnComponent } from '../show-password-btn/show-password-btn.component';
+import { SuccessFieldIconComponent } from '../../../shared/success-field-icon/success-field-icon.component';
+import { ShowPasswordBtnComponent } from '../../show-password-btn/show-password-btn.component';
 
 @Component({
   selector: 'app-input-group',

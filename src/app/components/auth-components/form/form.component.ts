@@ -13,7 +13,6 @@ import { YourGoalComponent } from '../your-goal/your-goal.component';
 import { SelectGenderComponent } from '../select-gender/select-gender.component';
 import { BodyParametersComponent } from '../body-parameters/body-parameters.component';
 import { ErrorMessageComponent } from '../error-message/error-message.component';
-import { AuthImgComponent } from '../auth-img/auth-img.component';
 import { YourActivityComponent } from '../your-activity/your-activity.component';
 @Component({
   selector: 'app-form',
@@ -22,7 +21,6 @@ import { YourActivityComponent } from '../your-activity/your-activity.component'
     SelectGenderComponent,
     InputGroupComponent,
     YourGoalComponent,
-    AuthImgComponent,
     BodyParametersComponent,
     YourActivityComponent,
     ErrorMessageComponent,

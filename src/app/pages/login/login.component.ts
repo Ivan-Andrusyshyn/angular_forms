@@ -7,17 +7,17 @@ import {
 } from '@angular/forms';
 
 import { InputGroupComponent } from '../../components/auth-components/input-group/input-group.component';
-import { AuthImgComponent } from '../../components/auth-components/auth-img/auth-img.component';
 import { SubtitleLinkComponent } from '../../components/auth-components/subtitle-link/subtitle-link.component';
+import { SignupImgComponent } from '../../components/auth-components/signup-img/signup-img.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
     InputGroupComponent,
+    SignupImgComponent,
     SubtitleLinkComponent,
     ReactiveFormsModule,
-    AuthImgComponent,
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',

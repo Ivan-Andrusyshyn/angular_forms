@@ -1,13 +1,13 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-auth-img',
+  selector: 'app-signup-img',
   standalone: true,
   imports: [],
-  templateUrl: './auth-img.component.html',
-  styleUrl: './auth-img.component.css',
+  templateUrl: './signup-img.component.html',
+  styleUrl: './signup-img.component.css',
 })
-export class AuthImgComponent {
+export class SignupImgComponent {
   @Input() currentStep: number = 1;
   BASE_SRC: string = '../../../assets/images/authImages';
 

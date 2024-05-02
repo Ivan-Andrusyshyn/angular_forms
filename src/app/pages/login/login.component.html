@@ -5,29 +5,30 @@
 
     <p class="signIn_subtitle">You need to login to use the service</p>
     <form class="signIn_form" [formGroup]="signInForm" (submit)="onSignIn()">
-      <div class="signIn_wrapper_inputs">
-        <app-input-group
-          [pageIs]="'SignIn'"
-          [formGroup]="signInForm"
-        ></app-input-group>
-      </div>
+      <div class="form_wrapper">
+        <div class="signIn_wrapper_inputs">
+          <app-input-group
+            [pageIs]="'SignIn'"
+            [formGroup]="signInForm"
+          ></app-input-group>
+        </div>
 
-      <div
-        class="error-wrapper"
-        *ngIf="isInvalid('password') && passwordControl"
-      >
-        <app-error-message
-          *ngIf="passwordControl.errors?.['required']"
-          [errorMessage]="'Password is required'"
-        ></app-error-message>
-        <app-error-message
-          *ngIf="passwordControl.errors?.['passwordStrength']"
-          [errorMessage]="
-            'Your password must have lower case, upper case and numeric characters.'
-          "
-        ></app-error-message>
+        <div
+          class="error-wrapper"
+          *ngIf="isInvalid('password') && passwordControl"
+        >
+          <app-error-message
+            *ngIf="passwordControl.errors?.['required']"
+            [errorMessage]="'Password is required'"
+          ></app-error-message>
+          <app-error-message
+            *ngIf="passwordControl.errors?.['passwordStrength']"
+            [errorMessage]="
+              'Your password must have lower case, upper case and numeric characters.'
+            "
+          ></app-error-message>
+        </div>
       </div>
-
       <button class="signIn_form_btn" type="submit">Sign In</button>
     </form>
     <app-subtitle-link [activePage]="'signin'"></app-subtitle-link>

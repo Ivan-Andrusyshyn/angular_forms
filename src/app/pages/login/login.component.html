@@ -11,6 +11,23 @@
           [formGroup]="signInForm"
         ></app-input-group>
       </div>
+
+      <div
+        class="error-wrapper"
+        *ngIf="isInvalid('password') && passwordControl"
+      >
+        <app-error-message
+          *ngIf="passwordControl.errors?.['required']"
+          [errorMessage]="'Password is required'"
+        ></app-error-message>
+        <app-error-message
+          *ngIf="passwordControl.errors?.['passwordStrength']"
+          [errorMessage]="
+            'Your password must have lower case, upper case and numeric characters.'
+          "
+        ></app-error-message>
+      </div>
+
       <button class="signIn_form_btn" type="submit">Sign In</button>
     </form>
     <app-subtitle-link [activePage]="'signin'"></app-subtitle-link>

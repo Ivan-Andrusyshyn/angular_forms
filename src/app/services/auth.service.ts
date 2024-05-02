@@ -15,7 +15,9 @@ export class AuthService {
   onSignUp(): void {
     this.router.navigate(['/dashboard']);
   }
-
+  onSignIn(): void {
+    this.router.navigate(['/dashboard']);
+  }
   onLogOut() {
     this.isAuthenticated = false;
     this.router.navigate(['/signup']);

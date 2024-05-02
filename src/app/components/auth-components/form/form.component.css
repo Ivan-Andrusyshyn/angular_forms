@@ -1,3 +1,8 @@
+.error-wrapper {
+  bottom: 65px;
+
+  position: absolute;
+}
 .signUp_form_btn {
   width: 100%;
   height: 36px;

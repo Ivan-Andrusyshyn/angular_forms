@@ -1,5 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NgIf } from '@angular/common';
 
@@ -14,6 +19,7 @@ import { SelectGenderComponent } from '../select-gender/select-gender.component'
 import { BodyParametersComponent } from '../body-parameters/body-parameters.component';
 import { ErrorMessageComponent } from '../error-message/error-message.component';
 import { YourActivityComponent } from '../your-activity/your-activity.component';
+import { UserData } from '../../models/UserData';
 @Component({
   selector: 'app-form',
   standalone: true,
@@ -82,7 +88,9 @@ export class FormComponent {
 
   onSignUp(): void {
     if (this.currentStep === this.totalSteps) {
-      this.authService.onSignUp();
+      const userData = this.signUpForm.value as UserData;
+
+      this.authService.onSignUp(userData);
       this.currentStepService.resetCurrentStep();
       return;
     } else if (!this.signUpForm.invalid) {

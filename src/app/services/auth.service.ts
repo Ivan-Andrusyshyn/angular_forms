@@ -1,5 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserData } from '../components/models/UserData';
 
 @Injectable({
   providedIn: 'root',
@@ -7,14 +8,20 @@ import { Router } from '@angular/router';
 export class AuthService {
   router = inject(Router);
 
+  signUpForm: UserData | null = null;
+
   userInfo = null;
   isAuthenticated: boolean = true;
 
   constructor() {}
 
-  onSignUp(): void {
+  onSignUp(userData: UserData): void {
+    this.signUpForm = userData;
+    console.log(this.signUpForm);
+
     this.router.navigate(['/dashboard']);
   }
+
   onSignIn(): void {
     this.router.navigate(['/dashboard']);
   }

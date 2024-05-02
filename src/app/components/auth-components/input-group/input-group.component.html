@@ -44,10 +44,10 @@
         'valid-input': isValid('password')
       }"
     />
-    <span *ngIf="isValid('password')" class="container_icon-password">
+    <span *ngIf="isValid('password')" class="form_icon_wrapper">
       <app-success-field-icon></app-success-field-icon>
     </span>
-    <span class="form_icon_wrapper" *ngIf="!isValid('password')">
+    <span *ngIf="!isValid('password')" class="form_icon_wrapper">
       <app-show-password-btn
         (onShow)="onPasswordShow()"
         [isShowPassword]="isShowPassword"

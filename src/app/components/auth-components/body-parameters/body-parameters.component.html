@@ -6,6 +6,10 @@
       id="height"
       placeholder="Enter your height"
       class="input-field"
+      [ngClass]="{
+        'invalid-input': isInvalid('height'),
+        'valid-input': isValid('height')
+      }"
       formControlName="height"
       title="183"
     />
@@ -17,6 +21,10 @@
       type="text"
       id="weight"
       placeholder="Enter your weight"
+      [ngClass]="{
+        'invalid-input': isInvalid('weight'),
+        'valid-input': isValid('weight')
+      }"
       class="input-field"
       formControlName="weight"
       title="99"

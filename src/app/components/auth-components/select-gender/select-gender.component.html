@@ -28,13 +28,25 @@
     >
   </div>
 
-  <label for="dateOfBirth" class="form-label">Your age</label>
-  <input
-    type="text"
-    class="text-input"
-    id="dateOfBirth"
-    title="29"
-    placeholder="Enter your age"
-    formControlName="dateOfBirth"
-  />
+  <div class="input-wrapper">
+    <label for="dateOfBirth" class="form-label">Your age</label>
+    <input
+      type="text"
+      class="text-input"
+      id="dateOfBirth"
+      title="29"
+      placeholder="Enter your age"
+      formControlName="dateOfBirth"
+      [ngClass]="{
+        'invalid-input': isInvalid('dateOfBirth'),
+        'valid-input': isValid('dateOfBirth')
+      }"
+    />
+    <div class="error-wrapper">
+      <app-error-message
+        *ngIf="isInvalid('dateOfBirth')"
+        [errorMessage]="'Date of birth is required !'"
+      ></app-error-message>
+    </div>
+  </div>
 </div>

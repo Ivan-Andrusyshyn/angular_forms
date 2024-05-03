@@ -1,11 +1,13 @@
 .error-wrapper {
-  bottom: 30px;
+  bottom: 54px;
   width: 500px;
   position: absolute;
 }
+
 .form_wrapper {
   position: relative;
 }
+
 .signUp_form_btn {
   width: 100%;
   height: 36px;

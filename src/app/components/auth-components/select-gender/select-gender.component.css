@@ -64,7 +64,7 @@
 }
 
 .text-input {
-  width: 300px;
+  width: 100%;
   display: inline-flex;
   padding: 8px 30px 8px 10px;
   flex-direction: column;
@@ -78,23 +78,41 @@
   border: 1px solid var(--color-primary-green-lite);
   background: var(--color-primary-black-2);
 }
+.textInput-wrapper {
+  width: 300px;
 
+  position: relative;
+}
+.input-wrapper {
+  position: relative;
+}
 .text-input:focus {
   outline: none;
   border-color: #007bff;
 }
-@media screen and (min-width: 834px) {
-  .gender-inputs {
-    gap: 52px;
-  }
+.error-wrapper {
+  top: 80px;
 
-  .text-input {
+  position: absolute;
+}
+/*  */
+.invalid-input {
+  border: 1px solid red;
+}
+.valid-input {
+  border: 1px solid green;
+}
+/*  */
+
+@media screen and (min-width: 834px) {
+  .textInput-wrapper {
     width: 380px;
   }
 }
 @media screen and (min-width: 1440) {
   .gender-inputs {
     gap: 24px;
+
     flex-direction: column;
   }
 }

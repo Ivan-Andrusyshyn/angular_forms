@@ -31,6 +31,7 @@
   width: 100%;
   position: relative;
 }
+/* success */
 .form_icon_wrapper {
   position: absolute;
   right: 10px;
@@ -52,16 +53,15 @@
 .hidden-input {
   display: none;
 }
-/* -------------------------- */
-.valid-input {
-  border-color: rgb(18, 196, 18);
-}
+
+/* -------------------------- error*/
 .invalid-input {
-  border-color: red;
+  border: 1px solid red;
 }
-.error-input {
-  border-color: red;
+.valid-input {
+  border: 1px solid green;
 }
+/*  */
 
 .container_icon-password {
   position: absolute;

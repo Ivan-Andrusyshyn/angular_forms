@@ -1,18 +1,13 @@
-import { AbstractControl } from '@angular/forms';
+import { AbstractControl, ValidatorFn } from '@angular/forms';
 
-export const dateOfBirthValidator = (
-  control: AbstractControl
-): { [key: string]: boolean } | null => {
-  if (!control.value) {
+export function ageValidator(minAge: number): ValidatorFn {
+  return (control: AbstractControl): { [key: string]: any } | null => {
+    const value = Number(control.value);
+
+    if (isNaN(value) || value < minAge) {
+      return { invalidAge: true };
+    }
+
     return null;
-  }
-  const dateOfBirth = new Date(control.value);
-
-  const age = new Date().getFullYear() - dateOfBirth.getFullYear();
-
-  if (age < 16) {
-    return { underAge: true };
-  }
-
-  return null;
-};
+  };
+}

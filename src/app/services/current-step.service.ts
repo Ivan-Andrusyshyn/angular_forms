@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class CurrentStepService {
-  currentStep = new BehaviorSubject<number>(3);
+  currentStep = new BehaviorSubject<number>(1);
 
   constructor() {}
 

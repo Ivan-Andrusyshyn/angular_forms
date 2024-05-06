@@ -12,6 +12,11 @@
   line-height: 1.4;
 }
 
+.error_wrapper {
+  position: absolute;
+  transform: translateY(60%);
+}
+
 .input-field {
   max-width: 440px;
   width: 100%;
@@ -29,13 +34,22 @@
   border: 1px solid var(--color-primary-green-lite);
   background: var(--color-primary-black-2);
 }
+
+/* success */
+.form_icon_wrapper {
+  position: absolute;
+  right: 10px;
+  transform: translateY(55%);
+}
+
+/* error */
 .invalid-input {
   border: 1px solid red;
 }
 .valid-input {
   border: 1px solid green;
 }
-
+/*  */
 .input-field:focus {
   outline: none;
   border-color: #007bff;

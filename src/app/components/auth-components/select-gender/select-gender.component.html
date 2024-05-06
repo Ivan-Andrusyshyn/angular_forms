@@ -37,15 +37,26 @@
       title="29"
       placeholder="Enter your age"
       formControlName="dateOfBirth"
-      [ngClass]="{
-        'invalid-input': isInvalid('dateOfBirth'),
-        'valid-input': isValid('dateOfBirth')
-      }"
+      appFormValidation
+      [controlName]="'dateOfBirth'"
+      [formGroup]="formGroup"
     />
+    <span *ngIf="formGroup.get('dateOfBirth')?.valid" class="form_icon_wrapper">
+      <app-success-field-icon></app-success-field-icon>
+    </span>
     <div class="error-wrapper">
       <app-error-message
-        *ngIf="isInvalid('dateOfBirth')"
-        [errorMessage]="'Date of birth is required !'"
+        *ngIf="formGroup.get('dateOfBirth')?.touched &&formGroup.get('dateOfBirth')?.errors?.['required']"
+        [errorMessage]="'Date of Birth is required'"
+      ></app-error-message>
+
+      <app-error-message
+        *ngIf="
+          formGroup.get('dateOfBirth')?.dirty &&
+          formGroup.get('dateOfBirth')?.invalid &&
+          formGroup.get('dateOfBirth')?.hasError('invalidAge')
+        "
+        [errorMessage]="'You must be at least 16 years old!'"
       ></app-error-message>
     </div>
   </div>

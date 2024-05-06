@@ -46,13 +46,16 @@ export class FormComponent {
   }
 
   onSignUp(): void {
+    const formGroup = this.formDataService.signUpForm;
+    const currentFormGroup = formGroup.get(`personalInfo`);
+
     if (this.currentStep === this.totalSteps) {
-      const userData = this.formDataService.signUpForm.value as UserData;
+      const userData = formGroup.value as UserData;
 
       this.authService.onSignUp(userData);
       this.currentStepService.resetCurrentStep();
       return;
-    } else if (!this.formDataService.signUpForm.invalid) {
+    } else if (currentFormGroup?.valid) {
       this.currentStepService.onNextStep();
     }
   }
@@ -72,11 +75,6 @@ export class FormComponent {
   get passwordControl() {
     return this.formDataService.signUpForm.controls.personalInfo.get(
       'password'
-    );
-  }
-  get genderInfoControl() {
-    return this.formDataService.signUpForm.controls.genderInfo.get(
-      'dateOfBirth'
     );
   }
 }

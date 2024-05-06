@@ -90,12 +90,19 @@
   outline: none;
   border-color: #007bff;
 }
+
+/* success */
+.form_icon_wrapper {
+  position: absolute;
+  right: 10px;
+  transform: translateY(55%);
+}
+/*error  */
 .error-wrapper {
   top: 80px;
 
   position: absolute;
 }
-/*  */
 .invalid-input {
   border: 1px solid red;
 }

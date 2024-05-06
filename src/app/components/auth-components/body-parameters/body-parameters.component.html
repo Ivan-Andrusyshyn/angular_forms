@@ -6,13 +6,23 @@
       id="height"
       placeholder="Enter your height"
       class="input-field"
-      [ngClass]="{
-        'invalid-input': isInvalid('height'),
-        'valid-input': isValid('height')
-      }"
       formControlName="height"
       title="183"
+      appFormValidation
+      [controlName]="'height'"
+      [formGroup]="formGroup"
     />
+    <span *ngIf="formGroup.get('height')?.valid" class="form_icon_wrapper">
+      <app-success-field-icon></app-success-field-icon>
+    </span>
+    <div class="error_wrapper">
+      <app-error-message
+        *ngIf="
+          formGroup.get('height')?.touched && formGroup.get('height')?.invalid
+        "
+        [errorMessage]="'Please enter a valid height.'"
+      ></app-error-message>
+    </div>
   </div>
 
   <div class="input-group">
@@ -21,13 +31,23 @@
       type="text"
       id="weight"
       placeholder="Enter your weight"
-      [ngClass]="{
-        'invalid-input': isInvalid('weight'),
-        'valid-input': isValid('weight')
-      }"
       class="input-field"
       formControlName="weight"
       title="99"
+      appFormValidation
+      [controlName]="'weight'"
+      [formGroup]="formGroup"
     />
+    <span *ngIf="formGroup.get('weight')?.valid" class="form_icon_wrapper">
+      <app-success-field-icon></app-success-field-icon>
+    </span>
+    <div class="error_wrapper">
+      <app-error-message
+        *ngIf="
+          formGroup.get('weight')?.touched && formGroup.get('weight')?.invalid
+        "
+        [errorMessage]="'Please enter a valid weight.'"
+      ></app-error-message>
+    </div>
   </div>
 </div>

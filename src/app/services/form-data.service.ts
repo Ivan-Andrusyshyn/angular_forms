@@ -1,7 +1,13 @@
 import { inject, Injectable } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
+
 import { createPasswordStrengthValidator } from '../validations/passwordValidator';
-import { dateOfBirthValidator } from '../validations/dateOfBirthValidator';
+import { ageValidator } from '../validations/dateOfBirthValidator';
 
 @Injectable({
   providedIn: 'root',
@@ -36,7 +42,7 @@ export class FormDataService {
     }),
     genderInfo: this.fb.group({
       gender: ['Male'],
-      dateOfBirth: ['', Validators.required, dateOfBirthValidator],
+      dateOfBirth: ['', [Validators.required, ageValidator(16)]],
     }),
     parametersInfo: this.fb.group({
       height: ['', Validators.required],

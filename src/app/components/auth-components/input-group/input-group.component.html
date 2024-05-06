@@ -1,53 +1,53 @@
 <div [formGroup]="formGroup" class="input-container">
   <div class="form_wrapper_input">
     <input
+      id="name"
       class="form-input"
       type="text"
       title="Example: Ivan"
-      formControlName="name"
       placeholder="Name"
       *ngIf="pageIs === 'SignUp'"
-      [ngClass]="{
-        'invalid-input': isInvalid('name'),
-        'valid-input': isValid('name')
-      }"
+      formControlName="name"
+      appFormValidation
+      [controlName]="'name'"
+      [formGroup]="formGroup"
     />
-    <span *ngIf="isValid('name')" class="form_icon_wrapper">
+    <span *ngIf="formGroup.get('name')?.valid" class="form_icon_wrapper">
       <app-success-field-icon></app-success-field-icon>
     </span>
   </div>
   <div class="form_wrapper_input">
     <input
+      id="email"
       class="form-input"
       type="email"
-      formControlName="email"
       placeholder="E-mail"
       title="Example: something@icloud.com"
-      [ngClass]="{
-        'invalid-input': isInvalid('email'),
-        'valid-input': isValid('email')
-      }"
+      formControlName="email"
+      appFormValidation
+      [controlName]="'email'"
+      [formGroup]="formGroup"
     />
-    <span *ngIf="isValid('email')" class="form_icon_wrapper">
+    <span *ngIf="formGroup.get('email')?.valid" class="form_icon_wrapper">
       <app-success-field-icon></app-success-field-icon>
     </span>
   </div>
   <div class="form_wrapper_password">
     <input
+      id="password"
       class="form-input"
       [type]="getInputType()"
-      formControlName="password"
       placeholder="Password"
       title="Example: Dev123"
-      [ngClass]="{
-        'invalid-input': isInvalid('password'),
-        'valid-input': isValid('password')
-      }"
+      formControlName="password"
+      appFormValidation
+      [controlName]="'password'"
+      [formGroup]="formGroup"
     />
-    <span *ngIf="isValid('password')" class="form_icon_wrapper">
+    <span *ngIf="formGroup.get('password')?.valid" class="form_icon_wrapper">
       <app-success-field-icon></app-success-field-icon>
     </span>
-    <span *ngIf="!isValid('password')" class="form_icon_wrapper">
+    <span *ngIf="formGroup.get('password')?.invalid" class="form_icon_wrapper">
       <app-show-password-btn
         (onShow)="onPasswordShow()"
         [isShowPassword]="isShowPassword"

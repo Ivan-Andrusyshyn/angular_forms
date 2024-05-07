@@ -47,7 +47,19 @@ export class FormComponent {
 
   onSignUp(): void {
     const formGroup = this.formDataService.signUpForm;
-    const currentFormGroup = formGroup.get(`personalInfo`);
+    const formDataKeysArr = [
+      'personalInfo',
+      'goalInfo',
+      'genderInfo',
+      'parametersInfo',
+      'activityInfo',
+    ];
+
+    const currentFormGroup = formGroup.get(
+      formDataKeysArr[this.currentStep - 1]
+    );
+
+    if (currentFormGroup?.invalid) return;
 
     if (this.currentStep === this.totalSteps) {
       const userData = formGroup.value as UserData;
@@ -55,7 +67,7 @@ export class FormComponent {
       this.authService.onSignUp(userData);
       this.currentStepService.resetCurrentStep();
       return;
-    } else if (currentFormGroup?.valid) {
+    } else {
       this.currentStepService.onNextStep();
     }
   }

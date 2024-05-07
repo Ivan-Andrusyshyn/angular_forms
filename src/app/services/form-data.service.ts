@@ -1,10 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import {
-  AbstractControl,
-  FormBuilder,
-  ValidatorFn,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 import { createPasswordStrengthValidator } from '../validations/passwordValidator';
 import { ageValidator } from '../validations/dateOfBirthValidator';

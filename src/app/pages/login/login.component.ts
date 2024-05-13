@@ -32,27 +32,7 @@ export class LoginComponent {
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
 
-  signInForm: FormGroup = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: [
-      '',
-      [Validators.required, Validators.minLength(6), Validators.maxLength(12)],
-    ],
-  });
-
-  get passwordControl() {
-    return this.signInForm.controls['password'];
-  }
-
-  isInvalid(controlName: string): boolean {
-    const control = this.signInForm.controls[`${controlName}`];
-    return (
-      (control?.invalid &&
-        (control?.dirty || control?.touched) &&
-        !this.signInForm.errors?.['incorrectFields']) ||
-      false
-    );
-  }
+  signInForm: FormGroup = this.fb.group({});
 
   onSignIn() {
     if (this.signInForm.invalid) return;

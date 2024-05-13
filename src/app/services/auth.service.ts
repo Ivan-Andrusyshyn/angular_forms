@@ -16,8 +16,9 @@ export class AuthService {
   constructor() {}
 
   onSignUp(userData: UserData): void {
+    console.log(userData);
+
     this.signUpForm = userData;
-    console.log(this.signUpForm);
 
     this.router.navigate(['/dashboard']);
   }

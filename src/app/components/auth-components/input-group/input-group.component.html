@@ -1,4 +1,4 @@
-<div [formGroup]="formGroup" class="input-container">
+<div [formGroup]="formGroupControl" class="input-container">
   <div class="form_wrapper_input">
     <input
       id="name"
@@ -10,9 +10,9 @@
       formControlName="name"
       appFormValidation
       [controlName]="'name'"
-      [formGroup]="formGroup"
+      [formGroup]="formGroupControl"
     />
-    <span *ngIf="formGroup.get('name')?.valid" class="form_icon_wrapper">
+    <span *ngIf="formGroupControl.get('name')?.valid" class="form_icon_wrapper">
       <app-success-field-icon></app-success-field-icon>
     </span>
   </div>
@@ -26,9 +26,12 @@
       formControlName="email"
       appFormValidation
       [controlName]="'email'"
-      [formGroup]="formGroup"
+      [formGroup]="formGroupControl"
     />
-    <span *ngIf="formGroup.get('email')?.valid" class="form_icon_wrapper">
+    <span
+      *ngIf="formGroupControl.get('email')?.valid"
+      class="form_icon_wrapper"
+    >
       <app-success-field-icon></app-success-field-icon>
     </span>
   </div>
@@ -42,16 +45,34 @@
       formControlName="password"
       appFormValidation
       [controlName]="'password'"
-      [formGroup]="formGroup"
+      [formGroup]="formGroupControl"
     />
-    <span *ngIf="formGroup.get('password')?.valid" class="form_icon_wrapper">
+    <span *ngIf="passwordControl?.valid" class="form_icon_wrapper">
       <app-success-field-icon></app-success-field-icon>
     </span>
-    <span *ngIf="formGroup.get('password')?.invalid" class="form_icon_wrapper">
+    <span *ngIf="passwordControl?.invalid" class="form_icon_wrapper">
       <app-show-password-btn
         (onShow)="onPasswordShow()"
         [isShowPassword]="isShowPassword"
       ></app-show-password-btn>
     </span>
+  </div>
+  <div
+    [ngClass]="{
+      'error-wrapper-signup': pageIs === 'SignUp',
+      'error-wrapper-signin': pageIs === 'SignIn'
+    }"
+    *ngIf="isInvalid('password') && passwordControl"
+  >
+    <app-error-message
+      *ngIf="passwordControl.errors?.['required']"
+      [errorMessage]="'Password is required'"
+    ></app-error-message>
+    <app-error-message
+      *ngIf="passwordControl.errors?.['passwordStrength']"
+      [errorMessage]="
+        'Your password must have lower case, upper case and numeric characters.'
+      "
+    ></app-error-message>
   </div>
 </div>

@@ -1,4 +1,4 @@
-<div [formGroup]="formGroup" class="form-container">
+<div [formGroup]="formGroupControl" class="form-container">
   <div class="input-group">
     <label for="height" class="input-label">Height</label>
     <input
@@ -10,17 +10,18 @@
       title="183"
       appFormValidation
       [controlName]="'height'"
-      [formGroup]="formGroup"
+      [formGroup]="formGroupControl"
     />
-    <span *ngIf="formGroup.get('height')?.valid" class="form_icon_wrapper">
+    <span
+      *ngIf="formGroupControl.get('height')?.valid"
+      class="form_icon_wrapper"
+    >
       <app-success-field-icon></app-success-field-icon>
     </span>
     <div class="error_wrapper">
       <app-error-message
-        *ngIf="
-          formGroup.get('height')?.touched && formGroup.get('height')?.invalid
-        "
-        [errorMessage]="'Please enter a valid height.'"
+        *ngIf="showError('height')"
+        [errorMessage]="'You must enter a numeric value for height.'"
       ></app-error-message>
     </div>
   </div>
@@ -36,17 +37,18 @@
       title="99"
       appFormValidation
       [controlName]="'weight'"
-      [formGroup]="formGroup"
+      [formGroup]="formGroupControl"
     />
-    <span *ngIf="formGroup.get('weight')?.valid" class="form_icon_wrapper">
+    <span
+      *ngIf="formGroupControl.get('weight')?.valid"
+      class="form_icon_wrapper"
+    >
       <app-success-field-icon></app-success-field-icon>
     </span>
     <div class="error_wrapper">
       <app-error-message
-        *ngIf="
-          formGroup.get('weight')?.touched && formGroup.get('weight')?.invalid
-        "
-        [errorMessage]="'Please enter a valid weight.'"
+        *ngIf="showError('weight')"
+        [errorMessage]="'You must enter a numeric value for weight.'"
       ></app-error-message>
     </div>
   </div>

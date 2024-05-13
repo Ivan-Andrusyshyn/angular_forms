@@ -1,18 +1,9 @@
 <form [formGroup]="signUpForm" class="signUp_form">
   <div class="form_wrapper">
-    <app-form-elements [currentStep]="currentStep"></app-form-elements>
-    <div class="error-wrapper" *ngIf="isInvalid('password') && passwordControl">
-      <app-error-message
-        *ngIf="passwordControl.errors?.['required']"
-        [errorMessage]="'Password is required'"
-      ></app-error-message>
-      <app-error-message
-        *ngIf="passwordControl.errors?.['passwordStrength']"
-        [errorMessage]="
-          'Your password must have lower case, upper case and numeric characters.'
-        "
-      ></app-error-message>
-    </div>
+    <app-form-elements
+      [signUpForm]="signUpForm"
+      [currentStep]="currentStep"
+    ></app-form-elements>
 
     <div class="form_btns_container">
       <button

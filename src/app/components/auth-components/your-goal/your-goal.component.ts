@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Component, inject, Input } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-your-goal',
@@ -10,4 +10,19 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class YourGoalComponent {
   @Input() formGroup!: FormGroup;
+
+  private fb = inject(FormBuilder);
+
+  ngOnInit() {
+    this.formGroup.addControl(
+      'goalInfo',
+      this.fb.group({
+        goal: ['Lose Fat'],
+      })
+    );
+  }
+
+  get formGroupControl() {
+    return this.formGroup.controls['goalInfo'] as FormGroup;
+  }
 }

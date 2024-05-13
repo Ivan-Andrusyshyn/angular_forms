@@ -1,25 +1,17 @@
 <div class="form-element-wrapper">
   <div class="signUp_wrapper_component" *ngIf="currentStep === 1">
-    <app-input-group
-      [formGroup]="signUpForm.controls.personalInfo"
-    ></app-input-group>
+    <app-input-group [formGroup]="signUpForm"></app-input-group>
   </div>
   <div class="signUp_wrapper_component" *ngIf="currentStep === 2">
-    <app-your-goal [formGroup]="signUpForm.controls.goalInfo"></app-your-goal>
+    <app-your-goal [formGroup]="signUpForm"></app-your-goal>
   </div>
   <div class="signUp_wrapper_component" *ngIf="currentStep === 3">
-    <app-select-gender
-      [formGroup]="signUpForm.controls.genderInfo"
-    ></app-select-gender>
+    <app-select-gender [formGroup]="signUpForm"></app-select-gender>
   </div>
   <div class="signUp_wrapper_component" *ngIf="currentStep === 4">
-    <app-body-parameters
-      [formGroup]="signUpForm.controls.parametersInfo"
-    ></app-body-parameters>
+    <app-body-parameters [formGroup]="signUpForm"></app-body-parameters>
   </div>
   <div class="signUp_wrapper_component" *ngIf="currentStep === 5">
-    <app-your-activity
-      [formGroup]="signUpForm.controls.activityInfo"
-    ></app-your-activity>
+    <app-your-activity [formGroup]="signUpForm"></app-your-activity>
   </div>
 </div>

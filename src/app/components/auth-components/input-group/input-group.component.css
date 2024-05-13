@@ -6,6 +6,19 @@
   flex-direction: column;
 }
 
+/* error */
+.error-wrapper-signin {
+  bottom: -30px;
+  width: 500px;
+  position: absolute;
+}
+.error-wrapper-signup {
+  bottom: 44px;
+  width: 500px;
+  position: absolute;
+}
+/*  */
+
 .form-input {
   width: 100%;
   padding: 8px 30px 8px 10px;

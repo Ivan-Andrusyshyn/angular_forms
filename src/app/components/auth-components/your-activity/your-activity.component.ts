@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Component, inject, Input } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-your-activity',
@@ -10,4 +10,18 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class YourActivityComponent {
   @Input() formGroup!: FormGroup;
+  private fb = inject(FormBuilder);
+
+  ngOnInit(): void {
+    this.formGroup.addControl(
+      'activityInfo',
+      this.fb.group({
+        activity: ['If you do not have physical activity and sedentary work'],
+      })
+    );
+  }
+
+  get formGroupControl() {
+    return this.formGroup.controls['activityInfo'] as FormGroup;
+  }
 }

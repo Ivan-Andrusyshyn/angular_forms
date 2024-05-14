@@ -7,10 +7,10 @@ import {
   Validators,
 } from '@angular/forms';
 
-import { ErrorMessageComponent } from '../error-message/error-message.component';
-import { FormValidationDirective } from '../../../directives/form-validation.directive';
-import { SuccessFieldIconComponent } from '../../../shared/success-field-icon/success-field-icon.component';
-import { numericValidator } from '../../../validations/numericValidator';
+import { ErrorMessageComponent } from '../../error-message/error-message.component';
+import { FormValidationDirective } from '../../../../directives/form-validation.directive';
+import { SuccessFieldIconComponent } from '../../../../shared/success-field-icon/success-field-icon.component';
+import { numericValidator } from '../../../../validations/numericValidator';
 
 @Component({
   selector: 'app-body-parameters',

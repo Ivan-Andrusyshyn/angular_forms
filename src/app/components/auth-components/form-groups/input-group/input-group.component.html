@@ -57,22 +57,9 @@
       ></app-show-password-btn>
     </span>
   </div>
-  <div
-    [ngClass]="{
-      'error-wrapper-signup': pageIs === 'SignUp',
-      'error-wrapper-signin': pageIs === 'SignIn'
-    }"
-    *ngIf="isInvalid('password') && passwordControl"
-  >
-    <app-error-message
-      *ngIf="passwordControl.errors?.['required']"
-      [errorMessage]="'Password is required'"
-    ></app-error-message>
-    <app-error-message
-      *ngIf="passwordControl.errors?.['passwordStrength']"
-      [errorMessage]="
-        'Your password must have lower case, upper case and numeric characters.'
-      "
-    ></app-error-message>
-  </div>
+
+  <app-input-group-errors
+    [pageIs]="pageIs"
+    [formGroupControl]="formGroupControl"
+  ></app-input-group-errors>
 </div>

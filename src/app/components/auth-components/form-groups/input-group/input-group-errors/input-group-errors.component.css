@@ -1,0 +1,12 @@
+/* error */
+.error-wrapper-signin {
+  bottom: -30px;
+  width: 500px;
+  position: absolute;
+}
+.error-wrapper-signup {
+  bottom: 44px;
+  width: 500px;
+  position: absolute;
+}
+/*  */

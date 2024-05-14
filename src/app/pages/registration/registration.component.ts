@@ -5,13 +5,15 @@ import { RouterLink } from '@angular/router';
 
 import { CurrentStepService } from '../../services/current-step.service';
 
+import { stepTitles } from './page-data/stepTitlesArray';
+import { stepSubtitles } from './page-data/stepSubtitlesArray';
+import { stepImageUrls } from './page-data/stepImageUrlsArray';
+
 import { FormComponent } from '../../components/auth-components/form/form.component';
-import { TitleComponent } from '../../components/auth-components/title/title.component';
-import { SubtitleComponent } from '../../components/auth-components/subtitle/subtitle.component';
+import { TitleComponent } from '../../components/title/title.component';
+import { SubtitleComponent } from '../../components/subtitle/subtitle.component';
 import { SubtitleLinkComponent } from '../../components/auth-components/subtitle-link/subtitle-link.component';
 import { SignupImgComponent } from '../../components/auth-components/signup-img/signup-img.component';
-import { stepTitles } from './stepTitlesArray';
-import { stepSubtitles } from './stepSubtitlesArray';
 
 @Component({
   selector: 'app-registration',
@@ -36,6 +38,7 @@ export class RegistrationComponent {
   currentStep: number = 1;
   pageTitle: string = '';
   pageSubtitle: string = '';
+  pageImage: string = '';
 
   constructor() {
     this.currentStepService.currentStep$
@@ -44,6 +47,7 @@ export class RegistrationComponent {
         this.currentStep = currentNumber;
         this.pageTitle = stepTitles[this.currentStep - 1];
         this.pageSubtitle = stepSubtitles[this.currentStep - 1];
+        this.pageImage = stepImageUrls[this.currentStep - 1];
       });
   }
 }

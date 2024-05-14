@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 
-import { InputGroupComponent } from '../../components/auth-components/input-group/input-group.component';
+import { InputGroupComponent } from '../../components/auth-components/form-groups/input-group/input-group.component';
 import { SubtitleLinkComponent } from '../../components/auth-components/subtitle-link/subtitle-link.component';
 import { SignupImgComponent } from '../../components/auth-components/signup-img/signup-img.component';
 import { AuthService } from '../../services/auth.service';
@@ -31,6 +31,8 @@ import { NgIf } from '@angular/common';
 export class LoginComponent {
   private fb = inject(FormBuilder);
   private authService = inject(AuthService);
+
+  pageImage = '../../../assets/images/authImages/Illustration.png';
 
   signInForm: FormGroup = this.fb.group({});
 

@@ -7,7 +7,7 @@ import { AuthService } from '../../../services/auth.service';
 import { CurrentStepService } from '../../../services/current-step.service';
 
 import { ErrorMessageComponent } from '../error-message/error-message.component';
-import { UserData } from '../../models/UserData';
+import { UserData } from '../../../models/UserData';
 import { FormElementsComponent } from '../form-elements/form-elements.component';
 
 const formDataKeysArr = [

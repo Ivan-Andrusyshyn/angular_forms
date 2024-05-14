@@ -1,11 +1,11 @@
-import { NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
-import { Component, inject, Input } from '@angular/core';
+import { NgSwitch, NgSwitchCase } from '@angular/common';
+import { Component, Input } from '@angular/core';
 
-import { YourActivityComponent } from '../your-activity/your-activity.component';
-import { BodyParametersComponent } from '../body-parameters/body-parameters.component';
-import { YourGoalComponent } from '../your-goal/your-goal.component';
-import { InputGroupComponent } from '../input-group/input-group.component';
-import { SelectGenderComponent } from '../select-gender/select-gender.component';
+import { YourActivityComponent } from '../form-groups/your-activity/your-activity.component';
+import { BodyParametersComponent } from '../form-groups/body-parameters/body-parameters.component';
+import { YourGoalComponent } from '../form-groups/your-goal/your-goal.component';
+import { InputGroupComponent } from '../form-groups/input-group/input-group.component';
+import { SelectGenderComponent } from '../form-groups/select-gender/select-gender.component';
 import { FormGroup } from '@angular/forms';
 
 @Component({

@@ -5,11 +5,11 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { ErrorMessageComponent } from '../error-message/error-message.component';
+import { ErrorMessageComponent } from '../../error-message/error-message.component';
 import { NgClass, NgIf } from '@angular/common';
-import { FormValidationDirective } from '../../../directives/form-validation.directive';
-import { SuccessFieldIconComponent } from '../../../shared/success-field-icon/success-field-icon.component';
-import { ageValidator } from '../../../validations/dateOfBirthValidator';
+import { FormValidationDirective } from '../../../../directives/form-validation.directive';
+import { SuccessFieldIconComponent } from '../../../../shared/success-field-icon/success-field-icon.component';
+import { ageValidator } from '../../../../validations/dateOfBirthValidator';
 
 @Component({
   selector: 'app-select-gender',

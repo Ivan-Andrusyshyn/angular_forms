@@ -1,5 +1,5 @@
 import { NgClass, NgIf } from '@angular/common';
-import { Component, inject, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -7,11 +7,13 @@ import {
   Validators,
 } from '@angular/forms';
 
-import { SuccessFieldIconComponent } from '../../../shared/success-field-icon/success-field-icon.component';
-import { ShowPasswordBtnComponent } from '../../show-password-btn/show-password-btn.component';
-import { FormValidationDirective } from '../../../directives/form-validation.directive';
-import { createPasswordStrengthValidator } from '../../../validations/passwordValidator';
-import { ErrorMessageComponent } from '../error-message/error-message.component';
+import { FormValidationDirective } from '../../../../directives/form-validation.directive';
+
+import { SuccessFieldIconComponent } from '../../../../shared/success-field-icon/success-field-icon.component';
+import { ShowPasswordBtnComponent } from '../../../show-password-btn/show-password-btn.component';
+import { createPasswordStrengthValidator } from '../../../../validations/passwordValidator';
+import { ErrorMessageComponent } from '../../error-message/error-message.component';
+import { InputGroupErrorsComponent } from './input-group-errors/input-group-errors.component';
 
 @Component({
   selector: 'app-input-group',
@@ -25,6 +27,7 @@ import { ErrorMessageComponent } from '../error-message/error-message.component'
     SuccessFieldIconComponent,
     ShowPasswordBtnComponent,
     ErrorMessageComponent,
+    InputGroupErrorsComponent,
   ],
   templateUrl: './input-group.component.html',
   styleUrl: './input-group.component.css',
@@ -93,11 +96,5 @@ export class InputGroupComponent implements OnInit {
 
   get formGroupControl() {
     return this.formGroup.controls['personalInfo'] as FormGroup;
-  }
-
-  isInvalid(controlName: string): boolean {
-    const control = this.formGroupControl.get(controlName);
-
-    return (control?.invalid && control?.dirty) || control?.touched || false;
   }
 }

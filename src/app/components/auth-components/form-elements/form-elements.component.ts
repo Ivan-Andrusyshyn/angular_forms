@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+import { NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
 import { Component, inject, Input } from '@angular/core';
 
 import { YourActivityComponent } from '../your-activity/your-activity.component';
@@ -18,7 +18,8 @@ import { FormGroup } from '@angular/forms';
     BodyParametersComponent,
     YourActivityComponent,
 
-    NgIf,
+    NgSwitchCase,
+    NgSwitch,
   ],
   templateUrl: './form-elements.component.html',
   styleUrl: './form-elements.component.css',

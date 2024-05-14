@@ -1,41 +1,15 @@
 <ul [formGroup]="formGroupControl" class="form-goal-options">
-  <li class="options-item">
-    <label for="lose-fat" class="form-goal-label">
+  <li class="options-item" *ngFor="let goal of goals; let i = index">
+    <label [for]="'goal' + i" class="form-goal-label">
       <input
         type="radio"
-        formControlName="goal"
-        id="lose-fat"
-        value="Lose Fat"
+        [formControlName]="'goal'"
+        [id]="'goal' + i"
+        [value]="goal"
         class="form-goal-radio"
       />
       <div class="radio-btn"></div>
-      Lose Fat</label
-    >
-  </li>
-  <li class="options-item">
-    <label for="maintain" class="form-goal-label">
-      <input
-        type="radio"
-        formControlName="goal"
-        id="maintain"
-        value="Maintain"
-        class="form-goal-radio"
-      />
-      <div class="radio-btn"></div>
-      Maintain</label
-    >
-  </li>
-  <li class="options-item">
-    <label for="gain-muscle" class="form-goal-label">
-      <input
-        type="radio"
-        formControlName="goal"
-        id="gain-muscle"
-        value="Gain Muscle"
-        class="form-goal-radio"
-      />
-      <div class="radio-btn"></div>
-      Gain Muscle</label
-    >
+      {{ goal }}
+    </label>
   </li>
 </ul>

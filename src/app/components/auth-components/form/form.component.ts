@@ -42,10 +42,10 @@ export class FormComponent {
   signUpForm = this.fb.group({});
 
   constructor() {
-    this.currentStepService.currentStep
+    this.currentStepService.currentStep$
       .pipe(takeUntilDestroyed())
-      .subscribe((currentNumber) => {
-        this.currentStep = currentNumber;
+      .subscribe((currentNumber$: number) => {
+        this.currentStep = currentNumber$;
       });
   }
 

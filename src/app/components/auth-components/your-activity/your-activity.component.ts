@@ -1,16 +1,20 @@
 import { Component, inject, Input } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { activities } from './activitiesArray';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-your-activity',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NgFor],
   templateUrl: './your-activity.component.html',
   styleUrl: './your-activity.component.css',
 })
 export class YourActivityComponent {
   @Input() formGroup!: FormGroup;
   private fb = inject(FormBuilder);
+
+  activities: string[] = activities;
 
   ngOnInit(): void {
     this.formGroup.addControl(

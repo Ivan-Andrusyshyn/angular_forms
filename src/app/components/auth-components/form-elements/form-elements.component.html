@@ -1,17 +1,17 @@
-<div class="form-element-wrapper">
-  <div class="signUp_wrapper_component" *ngIf="currentStep === 1">
+<div class="form-element-wrapper" [ngSwitch]="currentStep">
+  <div class="signUp_wrapper_component" *ngSwitchCase="1">
     <app-input-group [formGroup]="signUpForm"></app-input-group>
   </div>
-  <div class="signUp_wrapper_component" *ngIf="currentStep === 2">
+  <div class="signUp_wrapper_component" *ngSwitchCase="2">
     <app-your-goal [formGroup]="signUpForm"></app-your-goal>
   </div>
-  <div class="signUp_wrapper_component" *ngIf="currentStep === 3">
+  <div class="signUp_wrapper_component" *ngSwitchCase="3">
     <app-select-gender [formGroup]="signUpForm"></app-select-gender>
   </div>
-  <div class="signUp_wrapper_component" *ngIf="currentStep === 4">
+  <div class="signUp_wrapper_component" *ngSwitchCase="4">
     <app-body-parameters [formGroup]="signUpForm"></app-body-parameters>
   </div>
-  <div class="signUp_wrapper_component" *ngIf="currentStep === 5">
+  <div class="signUp_wrapper_component" *ngSwitchCase="5">
     <app-your-activity [formGroup]="signUpForm"></app-your-activity>
   </div>
 </div>

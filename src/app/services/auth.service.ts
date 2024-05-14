@@ -13,8 +13,6 @@ export class AuthService {
   userInfo = null;
   isAuthenticated: boolean = true;
 
-  constructor() {}
-
   onSignUp(userData: UserData): void {
     console.log(userData);
 

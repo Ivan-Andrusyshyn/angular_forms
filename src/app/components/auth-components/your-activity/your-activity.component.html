@@ -1,67 +1,15 @@
 <div [formGroup]="formGroupControl" class="radio-group">
-  <label for="activity1" class="radio-label">
-    <input
-      type="radio"
-      formControlName="activity"
-      id="activity1"
-      value="If you do not have physical activity and sedentary work"
-      class="radio-input"
-    />
-    <div class="radio-btn"></div>
-
-    If you do not have physical activity and sedentary work</label
-  >
-
-  <label for="activity2" class="radio-label">
-    <input
-      type="radio"
-      formControlName="activity"
-      id="activity2"
-      value="If you do short runs or light gymnastics 1-3 times a week"
-      class="radio-input"
-    />
-    <div class="radio-btn"></div>
-
-    If you do short runs or light gymnastics 1-3 times a week</label
-  >
-
-  <label for="activity3" class="radio-label">
-    <input
-      type="radio"
-      formControlName="activity"
-      id="activity3"
-      value="If you play sports with average loads 3-5 times a week"
-      class="radio-input"
-    />
-    <div class="radio-btn"></div>
-
-    If you play sports with average loads 3-5 times a week</label
-  >
-
-  <label for="activity4" class="radio-label">
-    <input
-      type="radio"
-      formControlName="activity"
-      id="activity4"
-      value="If you train fully 6-7 times a week"
-      class="radio-input"
-    />
-    <div class="radio-btn"></div>
-
-    If you train fully 6-7 times a week</label
-  >
-
-  <label for="activity5" class="radio-label">
-    <input
-      type="radio"
-      formControlName="activity"
-      id="activity5"
-      value="If your work is related to physical labor, you train 2 times a day and include strength exercises in your training program"
-      class="radio-input"
-    />
-    <div class="radio-btn"></div>
-
-    If your work is related to physical labor, you train 2 times a day and
-    include strength exercises in your training program</label
-  >
+  <ng-container *ngFor="let activity of activities; let i = index">
+    <label [for]="'activity' + i" class="radio-label">
+      <input
+        type="radio"
+        [formControlName]="'activity'"
+        [id]="'activity' + i"
+        [value]="activity"
+        class="radio-input"
+      />
+      <div class="radio-btn"></div>
+      {{ activity }}
+    </label>
+  </ng-container>
 </div>

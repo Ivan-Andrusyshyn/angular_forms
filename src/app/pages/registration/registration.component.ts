@@ -10,6 +10,8 @@ import { TitleComponent } from '../../components/auth-components/title/title.com
 import { SubtitleComponent } from '../../components/auth-components/subtitle/subtitle.component';
 import { SubtitleLinkComponent } from '../../components/auth-components/subtitle-link/subtitle-link.component';
 import { SignupImgComponent } from '../../components/auth-components/signup-img/signup-img.component';
+import { stepTitles } from './stepTitlesArray';
+import { stepSubtitles } from './stepSubtitlesArray';
 
 @Component({
   selector: 'app-registration',
@@ -31,14 +33,17 @@ import { SignupImgComponent } from '../../components/auth-components/signup-img/
 export class RegistrationComponent {
   private currentStepService = inject(CurrentStepService);
 
-  totalSteps: number = 5;
   currentStep: number = 1;
+  pageTitle: string = '';
+  pageSubtitle: string = '';
 
   constructor() {
-    this.currentStepService.currentStep
+    this.currentStepService.currentStep$
       .pipe(takeUntilDestroyed())
-      .subscribe((currentNumber) => {
+      .subscribe((currentNumber: number) => {
         this.currentStep = currentNumber;
+        this.pageTitle = stepTitles[this.currentStep - 1];
+        this.pageSubtitle = stepSubtitles[this.currentStep - 1];
       });
   }
 }
